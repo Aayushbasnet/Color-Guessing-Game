@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+</head>
+<body>
+    <!-- question section -->
+    <div class="game-header">
+        <div class="game-title">
+            <h1>Color Guessing Game</h1>
+        </div>
+        <div class="rgbQuestion">
+            <h1 id="rgbColor">RGB (255,255,255)</h1>
+        </div>
+        <h1>Guess the color above</h1>
+    </div>
+
+    <!-- play and game mode section -->
+    <div class="menu-hud">
+        <!-- play button -->
+        <div class="playBtn">
+            <button>New Color</button>
+        </div>
+        <!-- game status -->
+        <span class="status">Let's Play !!!</span>
+
+        <!-- game mode -->
+        <div class="game-mode">
+            <button class="easyBtn">Easy</button>
+            <button class="hardBtn">Hard</button>
+        </div>
+    </div>
+
+    <!-- answer sector -->
+    <div class="color-selection">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
