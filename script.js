@@ -21,6 +21,11 @@ class ColorGame{
         this.boxCount = 6;
     }
 
+    // new game
+    newGame(){
+        
+    }
+
     // Generates random rgb color
     rgbGenerator() {
         const r = Math.floor(Math.random()*256);
