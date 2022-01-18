@@ -93,7 +93,7 @@ easyBtn.addEventListener('click', function() {
     boxCount = 3;     // box value
     easyBtn.style.backgroundColor = "#BAFFB4";      // changing bg color of easy button on click
     hardBtn.removeAttribute("style");     // removing bg color of hard button if any
-
+    gameHeader.lastElementChild.textContent = "Guess the color above";
     const easyGame = new ColorGame(boxCount);       // creating colorgame object with box value 3
     easyGame.colorPicker();
 });
@@ -104,7 +104,7 @@ hardBtn.addEventListener('click', function() {
     boxCount = 6;     // box value
     easyBtn.removeAttribute("style");      // changing bg color of easy button on click
     hardBtn.style.backgroundColor = "#BAFFB4";     // removing bg color of hard button if any
-
+    gameHeader.lastElementChild.textContent = "Guess the color above";
     const hardGame = new ColorGame(boxCount);       // creating colorgame object with box value 6
     hardGame.colorPicker();
 });
@@ -112,6 +112,7 @@ hardBtn.addEventListener('click', function() {
 // play button clicked
 playBtn.addEventListener('click', function(){
     playingGame = true;
+    gameHeader.lastElementChild.textContent = "Guess the color above";
     const newGame = new ColorGame(boxCount);
     newGame.newGame();
 });
