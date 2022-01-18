@@ -4,6 +4,10 @@ const easyBtn = document.querySelector('.easyBtn');
 const hardBtn = document.querySelector('.hardBtn');
 const playBtn = document.querySelector('.playBtn');
 const gameStatus = document.querySelector('.status');
+const gameHeader = document.querySelector('.game-header');
+const colorSelection = document.querySelector('.color-selection');
+var boxCount = 6;       // default box value
+var playingGame = false;
 
 class ColorGame{
     constructor(boxCount){
@@ -12,13 +16,12 @@ class ColorGame{
         this.reset();
     }
 
-    // resetting game
+    // resetting game UI
     reset(){
         // game status
         gameStatus.textContent = "Let's Play !!!";
-        boxes.forEach(box => {
-            box.style.backgroundColor = "white";
-        });
+        gameHeader.style.backgroundColor = "rgb(233, 119, 119)";
+        colorSelection.style.background = "aliceblue";
         this.boxCount = this.boxCount;
     }
 
@@ -65,13 +68,29 @@ class ColorGame{
             i++;
         });       
     }
-
 }
 
-const game = new ColorGame(6);
+// when players picks correct answer
+const win = () =>{
+    gameStatus.textContent = "Congratulations! You won";
+    gameHeader.style.backgroundColor = rgbColor.textContent;
+    colorSelection.style.background = rgbColor.textContent;
+    boxes.forEach(box => {
+        box.style.backgroundColor = rgbColor.textContent;
+    });
+}
+
+// when players pick wrong answer
+function lose(box) {
+    gameStatus.textContent = "Please Try Again!";
+    box.style.backgroundColor = "aliceblue";
+}
+
+
 // Easy button clicking
 easyBtn.addEventListener('click', function() {
-    const boxCount = 3;     // box value
+    playingGame = true;
+    boxCount = 3;     // box value
     easyBtn.style.backgroundColor = "#BAFFB4";      // changing bg color of easy button on click
     hardBtn.removeAttribute("style");     // removing bg color of hard button if any
 
@@ -81,7 +100,8 @@ easyBtn.addEventListener('click', function() {
 
 // Hard button clicking
 hardBtn.addEventListener('click', function() {
-    const boxCount = 6;     // box value
+    playingGame = true;
+    boxCount = 6;     // box value
     easyBtn.removeAttribute("style");      // changing bg color of easy button on click
     hardBtn.style.backgroundColor = "#BAFFB4";     // removing bg color of hard button if any
 
@@ -89,5 +109,27 @@ hardBtn.addEventListener('click', function() {
     hardGame.colorPicker();
 });
 
-console.log(game.boxCount);
-console.log(game.colorPicker());
+// play button clicked
+playBtn.addEventListener('click', function(){
+    playingGame = true;
+    const newGame = new ColorGame(boxCount);
+    newGame.newGame();
+});
+
+// when boxes are clicked
+
+boxes.forEach(function (box){
+        box.addEventListener('click', function(){
+            if(playingGame){
+                if(box.style.backgroundColor === rgbColor.textContent.toLowerCase()){
+                    win();
+                }else {
+                    lose(this);
+                }
+            }else{
+                gameStatus.textContent = "Press New color or level";
+            }
+        });
+    
+});
+
