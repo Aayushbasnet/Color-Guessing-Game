@@ -42,5 +42,5 @@
 ***
 * When the color (answer) you select is correct.
 <img src="screenshots/Screenshot 10.png" width="100%" height="500"> &nbsp;
-***
+
 
